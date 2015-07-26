@@ -6,6 +6,7 @@ import (
   "strconv"
   "strings"
   "os"
+  "math"
 )
 
 // ReadInts reads whitespace-separated ints from r. If there's an error, it
@@ -22,6 +23,31 @@ func ReadInts(r io.Reader) ([]int, error) {
         result = append(result, x)
     }
     return result, scanner.Err()
+}
+
+func Factorial(n int) int {
+  result :=1
+  for i:=1 ; i<=n; i++ {
+    result *= i
+  }
+
+  return result
+}
+
+func FindPermut(n int, k int) []int {
+  // find k'th element of n-size permutation
+
+  // there are n! permutations
+  // each number is on first position (n-1)! times
+  totalP := Factorial(n)
+// 19 -> 20
+// 4! -> each can be 6 times
+// 20/6 -> 3.x -> 4
+// 6 / 3 ->  2
+ result := make([]int, n)
+ result[0] = int(math.Ceil(float64(k+1.0)/ ( float64(totalP) / float64(n))))
+ result[1] = totalP
+  return result
 }
 
 func main() {
