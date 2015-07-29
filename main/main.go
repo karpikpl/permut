@@ -5,18 +5,17 @@ import (
 	"os"
 	"permut/io"
 	"permut/permutation"
+	"strings"
 )
 
 func main() {
-	for {
-		input, err := io.ReadIntsLine(os.Stdin)
-
-		if len(input) > 0 {
-			result := permutation.FindPermut(input[0], input[1])
-			fmt.Printf("%d\n", result)
-		} else {
-			fmt.Println(err)
-			break
-		}
+	err := io.ReadIntsLines(os.Stdin, Solve)
+	if err != nil {
+		fmt.Println(err)
 	}
+}
+
+func Solve(n int, k int) {
+	result := permutation.FindPermut(n, k)
+	fmt.Println(strings.Trim(fmt.Sprint(result), "[]"))
 }

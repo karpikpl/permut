@@ -23,13 +23,17 @@ func ReadInts(r io.Reader) ([]int, error) {
 	return result, scanner.Err()
 }
 
-func ReadIntsLine(r io.Reader) ([]int, error) {
-	reader := bufio.NewReader(r)
-	line, err := reader.ReadString('\n')
+func ReadIntsLines(r io.Reader, action func(int, int)) error {
+	scanner := bufio.NewScanner(r)
+	for scanner.Scan() {
+		line := scanner.Text()
+		result, err := ReadInts(strings.NewReader(line))
 
-	if err == nil {
-		return ReadInts(strings.NewReader(line))
-	} else {
-		return nil, err
+		if len(result) == 2 {
+			action(result[0], result[1])
+		} else {
+			return err
+		}
 	}
+	return nil
 }
