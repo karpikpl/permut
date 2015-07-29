@@ -25,6 +25,17 @@ func ReadInts(r io.Reader) ([]int, error) {
 	return result, scanner.Err()
 }
 
+func ReadIntsLine(r io.Reader) ([]int, error) {
+	reader := bufio.NewReader(r)
+	line, err := reader.ReadString('\n')
+
+	if err == nil {
+		return ReadInts(strings.NewReader(line))
+	} else {
+		return nil, err
+	}
+}
+
 func FindPermut(n int, k int) []int {
 	table := make([]int, n)
 	for i := 1; i <= n; i++ {
@@ -33,7 +44,6 @@ func FindPermut(n int, k int) []int {
 
 	for i := 0; i < k; i++ {
 		PermutMe(&table)
-		//fmt.Println("permutation", i+1, "=", table)
 	}
 
 	return table
@@ -58,12 +68,11 @@ func PermutMe(tablePtr *[]int) {
 	}
 
 	// Swap the value of a[k] with that of a[l].
-	// Reverse the sequence from a[k + 1] up to and including the final element a[n].
-
 	tmp := table[k]
 	table[k] = table[l]
 	table[l] = tmp
 
+	// Reverse the sequence from a[k + 1] up to and including the final element a[n].
 	Reverse(&table, k+1)
 }
 
@@ -97,15 +106,15 @@ func FindL(sPtr *[]int, k int) int {
 }
 
 func main() {
-	argsWithoutProg := os.Args[1:]
-	var input []int
+	for {
+		input, err := ReadIntsLine(os.Stdin)
 
-	if len(argsWithoutProg) == 0 {
-		input, _ = ReadInts(os.Stdin)
-	} else {
-		input, _ = ReadInts(strings.NewReader(argsWithoutProg[0]))
+		if len(input) > 0 {
+			result := FindPermut(input[0], input[1])
+			fmt.Printf("%d\n", result)
+		} else {
+			fmt.Println(err)
+			break
+		}
 	}
-
-	result := FindPermut(input[0], input[1])
-	fmt.Printf("%d", result)
 }
