@@ -1,39 +1,10 @@
-package main
+package permutation
 
 import (
 	"fmt"
 	"github.com/stretchr/testify/assert"
-	"strings"
 	"testing"
 )
-
-func Test_ReadInts_Should_ParseString(t *testing.T) {
-	t.Log("ReadInts should parse string '32 67'")
-	// Arrange
-	testData := "32 67"
-	expected := []int{32, 67}
-
-	// Act
-	result, err := ReadInts(strings.NewReader(testData))
-
-	// Assert
-	assert.Equal(t, expected, result)
-	assert.Nil(t, err)
-}
-
-// func Test_ReadInts_Should_ParseMultilineString(t *testing.T) {
-// 	t.Log("ReadInts should parse string '32 67'")
-// 	// Arrange
-// 	testData := "3 4\n3 2 1"
-// 	expected := [][]int{[]int{3,4}, []int{3,2,1}}
-//
-// 	// Act
-// 	result, err := ReadInts(strings.NewReader(testData))
-//
-// 	// Assert
-// 	assert.Equal(t, expected, result)
-// 	assert.Nil(t, err)
-// }
 
 func Test_FindPermut_Should_Find4PermutationOfSet3(t *testing.T) {
 	t.Log("Finds 4th permutation of 3 size set")
