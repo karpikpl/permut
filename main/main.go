@@ -9,10 +9,7 @@ import (
 )
 
 func main() {
-	err := io.ReadIntsLines(os.Stdin, Solve)
-	if err != nil {
-		fmt.Println(err)
-	}
+	io.ExecuteActionOnEachLine(os.Stdin, Solve)
 }
 
 func Solve(n int, k int) {

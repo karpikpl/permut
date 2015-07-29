@@ -6,16 +6,17 @@ import (
 	"testing"
 )
 
-func Test_ReadInts_Should_ParseString(t *testing.T) {
-	t.Log("ReadInts should parse string '32 67'")
+func Test_ExecuteActionOnEachLine_Should_CallPassedActionWithInts(t *testing.T) {
 	// Arrange
-	testData := "32 67"
-	expected := []int{32, 67}
+	testData := "32 67\n10 15"
+	var calledTimes int
+	dummyAction := func(n int, k int) {
+		calledTimes++
+	}
 
 	// Act
-	result, err := ReadInts(strings.NewReader(testData))
+	ExecuteActionOnEachLine(strings.NewReader(testData), dummyAction)
 
 	// Assert
-	assert.Equal(t, expected, result)
-	assert.Nil(t, err)
+	assert.Equal(t, 2, calledTimes)
 }

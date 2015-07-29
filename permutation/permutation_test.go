@@ -127,3 +127,12 @@ func BenchmarkHello(b *testing.B) {
 		fmt.Sprintf("hello")
 	}
 }
+
+func BenchmarkFindPermut(b *testing.B) {
+	//big := 3.0414093e+64
+	big := 1<<31 - 1
+
+	for i := 0; i < b.N; i++ {
+		FindPermut(50, big)
+	}
+}
