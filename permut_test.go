@@ -11,15 +11,29 @@ func Test_ReadInts_Should_ParseString(t *testing.T) {
 	t.Log("ReadInts should parse string '32 67'")
 	// Arrange
 	testData := "32 67"
+	expected := []int{32, 67}
 
 	// Act
 	result, err := ReadInts(strings.NewReader(testData))
 
 	// Assert
-	assert.Equal(t, 32, result[0])
-	assert.Equal(t, 67, result[1])
+	assert.Equal(t, expected, result)
 	assert.Nil(t, err)
 }
+
+// func Test_ReadInts_Should_ParseMultilineString(t *testing.T) {
+// 	t.Log("ReadInts should parse string '32 67'")
+// 	// Arrange
+// 	testData := "3 4\n3 2 1"
+// 	expected := [][]int{[]int{3,4}, []int{3,2,1}}
+//
+// 	// Act
+// 	result, err := ReadInts(strings.NewReader(testData))
+//
+// 	// Assert
+// 	assert.Equal(t, expected, result)
+// 	assert.Nil(t, err)
+// }
 
 func Test_FindPermut_Should_Find4PermutationOfSet3(t *testing.T) {
 	t.Log("Finds 4th permutation of 3 size set")
@@ -47,18 +61,6 @@ func Test_FindPermut_Should_Find19PermutationOfSet4(t *testing.T) {
 
 	// Assert
 	assert.Equal(t, expected, result, "k'th permutation should be equal to 4 1 3 2")
-}
-
-func Test_Factorial_Should_Be120When5(t *testing.T) {
-	// Arrange
-	expected := 120
-	n := 5
-
-	// Act
-	result := Factorial(n)
-
-	// Assert
-	assert.Equal(t, expected, result, "factorial of 6 should be 120")
 }
 
 func Test_Reverse_Should_ReverseArrayStartingFromK(t *testing.T) {

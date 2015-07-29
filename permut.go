@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"io"
-	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -100,13 +99,13 @@ func FindL(sPtr *[]int, k int) int {
 func main() {
 	argsWithoutProg := os.Args[1:]
 	var input []int
-	var err error
 
 	if len(argsWithoutProg) == 0 {
-		input, err = ReadInts(os.Stdin)
+		input, _ = ReadInts(os.Stdin)
 	} else {
-		input, err = ReadInts(strings.NewReader(argsWithoutProg[0]))
+		input, _ = ReadInts(strings.NewReader(argsWithoutProg[0]))
 	}
 
-	fmt.Println(input, err)
+	result := FindPermut(input[0], input[1])
+	fmt.Printf("%d", result)
 }
