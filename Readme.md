@@ -37,3 +37,6 @@ $ go fmt ./...
 ```
 $ go run main\main.go < sample.in > answer.ans
 ```
+
+### Sources
+https://github.com/karpikpl/permut.git
