@@ -6,6 +6,9 @@ Input consists of up to 1000 test cases, one per line. Each test case has two in
 
 That means large number need to be handled - up to 3.0414093e+64
 
+## Solution
+http://stackoverflow.com/questions/7918806/finding-n-th-permutation-without-computing-others
+
 ### How to Test
 http://blog.stretchr.com/2014/03/05/test-driven-development-specifically-in-golang/
 
