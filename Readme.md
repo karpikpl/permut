@@ -10,7 +10,7 @@ That means large number need to be handled - up to 3.0414093e+64
 http://blog.stretchr.com/2014/03/05/test-driven-development-specifically-in-golang/
 
 ```
-$ go test ./... -test.v=true
+$ go test ./... -v
 $ go test ./permutation -test.coverprofile=coverageReport.out -test.v=true
 ```
 

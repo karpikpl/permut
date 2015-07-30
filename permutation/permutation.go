@@ -36,9 +36,7 @@ func PermutMe(tablePtr *[]int) {
 	}
 
 	// Swap the value of a[k] with that of a[l].
-	tmp := table[k]
-	table[k] = table[l]
-	table[l] = tmp
+	table[k], table[l] = table[l], table[k]
 
 	// Reverse the sequence from a[k + 1] up to and including the final element a[n].
 	Reverse(&table, k+1)
