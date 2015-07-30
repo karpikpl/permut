@@ -8,9 +8,9 @@ import (
 
 func Test_ExecuteActionOnEachLine_Should_CallPassedActionWithInts(t *testing.T) {
 	// Arrange
-	testData := "32 67\n10 15"
+	testData := "32 67\n50 3.0414093e+64"
 	var calledTimes int
-	dummyAction := func(n int, k int) {
+	dummyAction := func(n int, k float64) {
 		calledTimes++
 	}
 
