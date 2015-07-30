@@ -119,7 +119,7 @@ func Test_FindPermut_Should_Find19PermutationOfSet10(t *testing.T) {
 	result := FindPermut(n, k)
 
 	// Assert
-	assert.Equal(t, expected, result, "k'th permutation should be equal to 1 2 3 4 5 6 7 9 10 8")
+	assert.Equal(t, expected, result, "3'rd permutation should be equal to 1 2 3 4 5 6 7 9 10 8")
 }
 
 func BenchmarkHello(b *testing.B) {

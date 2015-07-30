@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 	"permut/io"
-	"permut/permutation"
+	"permut/fastPermutation"
 	"strings"
 )
 
@@ -13,6 +13,6 @@ func main() {
 }
 
 func Solve(n int, k int) {
-	result := permutation.FindPermut(n, k)
+	result := fastPermutation.FindPermut(n, k)
 	fmt.Println(strings.Trim(fmt.Sprint(result), "[]"))
 }
