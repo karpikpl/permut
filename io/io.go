@@ -3,11 +3,12 @@ package io
 import (
 	"bufio"
 	"io"
+	"math/big"
 	"strconv"
 	"strings"
 )
 
-func ExecuteActionOnEachLine(r io.Reader, action func(int, float64)) {
+func ExecuteActionOnEachLine(r io.Reader, action func(int, *big.Int)) {
 	scanner := bufio.NewScanner(r)
 	for scanner.Scan() {
 		line := scanner.Text()
@@ -15,7 +16,7 @@ func ExecuteActionOnEachLine(r io.Reader, action func(int, float64)) {
 
 		if len(values) == 2 {
 			n, _ := strconv.Atoi(values[0])
-			k, _ := strconv.ParseFloat(values[1], 64)
+			k, _ := new(big.Int).SetString(values[1], 10)
 			action(n, k)
 		} else {
 			panic("something went wrong - do data to process")
