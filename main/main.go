@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
+	"math/big"
 	"os"
 	"permut/fastPermutation"
 	"permut/io"
 	"strings"
-	"math/big"
 )
 
 func main() {

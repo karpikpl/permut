@@ -9,8 +9,8 @@ That means large number need to be handled - up to 3.0414093e+64
 ## Solution
 http://stackoverflow.com/questions/7918806/finding-n-th-permutation-without-computing-others
 
-need to create a new numeric type to handle this number `30414093201713378043612608166064768844377641568960511999999999999`
-it should be build using `uint64` - requires 4 of them, representation can be done this way: `c1+c2*10^19+c3*10^38+c4*10^57`
+need to use a new numeric type to handle this number `30414093201713378043612608166064768844377641568960511999999999999`
+that was solved using `math/big` - https://golang.org/pkg/math/big/
 
 ### How to Test
 http://blog.stretchr.com/2014/03/05/test-driven-development-specifically-in-golang/
